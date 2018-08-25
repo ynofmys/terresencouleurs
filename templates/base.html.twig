@@ -9,12 +9,12 @@
     <body class="bg-fbsilver">
         {% block body %}
             <div class="row justify-content-center bg-fbblue text-white pt-3">
-                <h1 class="col-sm-3 fs-2rem font-weight-bold">{{ block('title') }}</h1>
+                <h1 class="col-sm-3"><a class="text-white btn fs-2rem font-weight-bold" href="/" title="{{ block('title') }}" >{{ block('title') }}</a></h1>
                 <div class="col-sm-5 d-flex justify-content-end">{% include 'connexion.html.twig' %}</div>
             </div>
             <div class="row justify-content-center">
                 <nav class="col-sm-2">
-                    <img class="mb-3 mt-3" src="/img/profil.jpg" alt="profil"/>
+                    <a href="/" title="{{ block('title') }}" ><img class="mb-3 mt-3" src="/img/profil.jpg" alt="profil"/></a>
                     <h2>Accueil</h2>
                     <h2>Clients</h2>
                 </nav>
