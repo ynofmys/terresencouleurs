@@ -9,17 +9,16 @@
     </head>
     <body class="bg-fbsilver">
         {% block body %}
-            <div class="row justify-content-center bg-fbblue text-white pt-3">
-                <h1 class="col-sm-3"><a class="text-white btn fs-2rem font-weight-bold" href="/" title="{{ block('title') }}" >{{ block('title') }}</a></h1>
-                <div class="col-sm-5 d-flex justify-content-end">{% include 'connexion.html.twig' %}</div>
+            <div class="bg-fbblue d-md-flex justify-content-center text-white pt-3">
+                <h1 class="col-12 col-md-5 col-lg-5"><a class="text-white btn fs-2rem font-weight-bold" href="/" title="{{ block('title') }}" >{{ block('title') }}</a></h1>
+                <div class="col-12 col-md-7 col-lg-5">{% include 'connexion.html.twig' %}</div>
             </div>
-            <div class="row justify-content-center">
-                <nav class="col-sm-2">
-                    <a href="/" title="{{ block('title') }}" ><img class="mb-3 mt-3" src="/img/profil.jpg" alt="profil"/></a>
-                    <h2>Accueil</h2>
-                    <h2>Clients</h2>
+            <div class="d-md-flex justify-content-center">
+                <nav class="m-3">
+                    <a class="d-none d-md-block" href="/" title="{{ block('title') }}" ><img class="" src="/img/profil.jpg" alt="profil"/></a>
+                    <div>{% include 'menu.html.twig' %}</div>
                 </nav>
-                {% block page %}<div class="col-sm-6 card mt-3">{% include 'accueil.html.twig' %}</div>{% endblock %}
+                {% block page %}<div class="card ml-3  ml-md-0 mr-3 mt-3">{% include 'accueil.html.twig' %}</div>{% endblock %}
             </div>
         {% endblock %}
         {% block javascripts %}{% endblock %}
