@@ -4,6 +4,7 @@ use App\Kernel;
 use Symfony\Component\Debug\Debug;
 use Symfony\Component\Dotenv\Dotenv;
 use Symfony\Component\HttpFoundation\Request;
+use \Symfony\Component\HttpFoundation\RedirectResponse;
 
 require __DIR__.'/../vendor/autoload.php';
 
@@ -34,6 +35,11 @@ if ($trustedHosts = $_SERVER['TRUSTED_HOSTS'] ?? false) {
 
 $kernel = new Kernel($env, $debug);
 $request = Request::createFromGlobals();
-$response = $kernel->handle($request);
+if ($request->getScheme() === 'http') {
+    $urlRedirect = str_replace($request->getScheme(), 'https', $request->getUri());
+    $response = new RedirectResponse($urlRedirect);
+} else {
+    $response = $kernel->handle($request);
+};
 $response->send();
 $kernel->terminate($request, $response);
